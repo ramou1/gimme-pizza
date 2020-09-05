@@ -1,1 +1,68 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* change global font */
+body, .form-control, .btn {
+    font-family: 'Montserrat';
+    font-size: 0.8rem;
+}
+
+/* styling forms */
+.form-title-label {
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+.jumbotron {
+    background: #fff;
+    border-radius: 20px;
+    padding: 1rem 3rem;
+}
+
+.form-text {
+    color: #d32f2f !important;
+    font-weight: 600;
+}
+
+/* end styling forms */
+
+body {
+    /* background: #d32f2f; */
+    /* background: linear-gradient(to right, #ff6659, #d32f2f); */
+    background-image:url(\assets\imgs\bg-img.png);
+    /* background:url(\assets\imgs\bg-img.png) repeat, linear-gradient(to right, #ff6659, #d32f2f); */
+}
+
+.container {
+    margin-top: 3vh;
+}
+
+
+.btn-primary, .btn-primary:disabled {
+    background-color: #d32f2f;
+    border-color: #d32f2f;
+}
+
+.btn-primary:hover {
+    background-color: #9a0007;
+    border-color: #9a0007;
+}
+
+.btn-outline-primary {
+    color: #E05252;
+    border-color: #E05252;
+}
+
+.btn-outline-primary:hover {
+    background-color: #E05252;
+    border-color: #E05252;
+}

@@ -1,0 +1,130 @@
+<div class="container">
+  <div class="jumbotron col-lg-5 mx-auto dark shadow">
+    <h1>Gimme Pizza</h1>
+    <p>Choose the options.</p>
+
+    <form>
+
+      <div class="form-row">
+        <div class="col-md-8">
+
+          <label class="form-title-label">Size</label>
+          <div class="form-group">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" [(ngModel)]="pizzas.size" name="SizeOptions" id="sizeOption1" value="option1" checked>
+              <label class="form-check-label" for="sizeOption1">P</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" [(ngModel)]="pizzas.size" name="SizeOptions" id="sizeOption2" value="option2">
+              <label class="form-check-label" for="sizeOption2">M</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" [(ngModel)]="pizzas.size" name="SizeOptions" id="sizeOption3" value="option3">
+              <label class="form-check-label" for="sizeOption3">G</label>
+            </div>
+          </div>
+
+          <label class="form-title-label">Pizza Dough</label>
+          <div class="form-group">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" [(ngModel)]="pizzas.crust" name="DoughOptions" id="doughOption1" value="thin" checked>
+              <label class="form-check-label" for="doughOption1">Thin-Crust</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" [(ngModel)]="pizzas.crust" name="DoughOptions" id="doughOption2" value="thick">
+              <label class="form-check-label" for="doughOption2">Thick-Crust</label>
+            </div>
+          </div>
+
+          <label class="form-title-label">Kind of Pizza</label> 
+          <div class="form-group">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="pizzaOptions" id="pizzaOption1"
+                (change)="setType(false)" checked>
+              <label class="form-check-label" for="pizzaOption1">Whole Pizza</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="pizzaOptions" id="pizzaOption2"
+                (change)="setType(true)">
+              <label class="form-check-label" for="pizzaOption2">Half 'n' Half</label>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-4">
+          <img src="..\assets\imgs\whole-pizza.png" class="card-img-top" *ngIf="!half" alt="...">
+          <img src="..\assets\imgs\half-pizza.png" class="card-img-top" *ngIf="half" alt="...">
+        </div>
+      </div>
+
+      <span *ngIf="!half">
+        <div class="form-group">
+          <label for="oneFlavorOption" class="form-title-label">Flavor</label>
+          <select class="form-control" id="oneFlavorOption">
+            <option value="MARGUERITA">MARGUERITA</option>
+            <option value="CALABRESA">CALABRESA</option>
+            <option value="PEPPERONI">PEPPERONI</option>
+            <option value="FRANGO_COM_CATUPIRY">FRANGO COM CATUPIRY</option>
+            <option value="PORTUGUESA">PORTUGUESA</option>
+            <option value="QUATRO_QUEIJOS">QUATRO QUEIJOS</option>
+          </select>
+        </div>
+      </span>
+
+      <span *ngIf="half">
+        <div class="form-row">
+
+          <div class="form-group col-md-6 mb-3">
+            <label for="firstFlavorOption" class="form-title-label">First Flavor</label>
+            <select class="form-control" id="firstFlavorOption">
+              <option value="MARGUERITA">MARGUERITA</option>
+              <option value="CALABRESA">CALABRESA</option>
+              <option value="PEPPERONI">PEPPERONI</option>
+              <option value="FRANGO_COM_CATUPIRY">FRANGO COM CATUPIRY</option>
+              <option value="PORTUGUESA">PORTUGUESA</option>
+              <option value="QUATRO_QUEIJOS">QUATRO QUEIJOS</option>
+            </select>
+          </div>
+
+          <div class="form-group col-md-6 mb-3">
+            <label for="secondFlavorOption" class="form-title-label">Second Flavor</label>
+            <select class="form-control" id="secondFlavorOption">
+              <option value="MARGUERITA">MARGUERITA</option>
+              <option value="CALABRESA">CALABRESA</option>
+              <option value="PEPPERONI">PEPPERONI</option>
+              <option value="FRANGO_COM_CATUPIRY">FRANGO COM CATUPIRY</option>
+              <option value="PORTUGUESA">PORTUGUESA</option>
+              <option value="QUATRO_QUEIJOS">QUATRO QUEIJOS</option>
+            </select>
+          </div>
+
+        </div>
+      </span>
+
+      <label class="form-title-label">Extra Sauce</label>
+      <div class="form-group">
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" [(ngModel)]="pizzas.extraSauce" type="radio" name="ExtraSauceOptions" id="yes" value="option1">
+          <label class="form-check-label" for="yes">Yes</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" [(ngModel)]="pizzas.extraSauce" type="radio" name="ExtraSauceOptions" id="no" value="option2" checked>
+          <label class="form-check-label" for="no">No</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-title-label">Observation (optional)</label>
+        <textarea class="form-control" [(ngModel)]="pizzas.note" name="note" id="exampleFormControlTextarea1" rows="3"
+          placeholder="Ex: Send message to client prior to delivery, exchange black olives for green ones etc "></textarea>
+      </div>
+
+      <button type="button" class="btn btn-primary mr-4" (click)="chooseClient()">Choose Client</button>
+
+      <button type="button" class="btn btn-primary mr-4" [routerLink]="['/register']">Create Client</button>
+
+      <button type="submit" class="btn btn-primary mr-4" [routerLink]="['/register']" disabled>Send!</button>
+    </form>
+
+  </div>
+</div>

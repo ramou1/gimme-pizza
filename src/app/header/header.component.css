@@ -1,0 +1,10 @@
+.titulo {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    font-weight: 800;
+	color: white;
+    /* text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #E05252, 0 0 70px #E05252, 0 0 80px #E05252, 0 0 100px #E05252, 0 0 150px #E05252; */
+    text-shadow: -1px 1px 0px #d32f2f,
+				-4px 4px 0px #E05252,
+				-7px 7px 0px #BD5858;
+}

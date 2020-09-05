@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-xl-10 col-md-6 mb-6 mx-auto">
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-action flex-column align-items-start active">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1 text-center">Orders</h5>
+          </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center"
+          *ngFor="let order of orders; let i = index;" [routerLink]="['/order-details', 'order']">
+          <span *ngFor="let pizzas of order.pizzas; let i = index;">{{pizza.mainFlavor}} {{pizza.secondaryFlavor ? pizza.secondaryFlavor : ''}}</span> | {{order.pizzaOrder.client.fullName}}
+          <span class="badge badge-primary badge-pill">{{order.status}}</span>
+          <small>19:50</small>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+</div>
+

@@ -1,0 +1,82 @@
+<div class="container">
+    <div class="jumbotron col-lg-6 mx-auto dark shadow">
+        <h1>Register</h1>
+
+        <form>
+
+            <div class="form-row">
+                <div class="col-md-8 mb-3">
+                    <label for="fullname" class="form-title-label">Full name</label>
+                    <input type="text" [(ngModel)]="client.fullName" name="fullname" class="form-control" id="fullname" placeholder="full name" value="" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="id" class="form-title-label">ID (CPF)</label>
+                    <input type="text" [(ngModel)]="client.identityId" name="id" class="form-control" id="id" placeholder="w/o dashes or dots" value="" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-8 mb-3">
+                    <label for="email" class="form-title-label">Email address</label>
+                    <input type="email" [(ngModel)]="client.clientContacts.email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="enter email" required>
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="phone" class="form-title-label">Phone</label>
+                    <input type="number" [(ngModel)]="client.clientContacts.phone" name="phone" class="form-control" id="phone" placeholder="w/o dots" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-5 mb-3">
+                    <label for="city" class="form-title-label">City</label>
+                    <input type="text" [(ngModel)]="client.city" name="city" class="form-control" id="city" placeholder="city" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="state" class="form-title-label">State</label>
+                    <select class="form-control" id="state">
+                        <option *ngFor="let state of states" name="state" value="{{state.abbreviation}}">{{state.name}}</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="zip" class="form-title-label">Zip</label>
+                    <input type="text" [(ngModel)]="client.zipCode" name="zip" class="form-control" id="zip" placeholder="zip code" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-8 mb-3">
+                    <label for="street" class="form-title-label">Street</label>
+                    <input type="text" [(ngModel)]="client.streetAddress" name="street" class="form-control" id="street" placeholder="street name" required>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="number" class="form-title-label">Number</label>
+                    <input type="number" [(ngModel)]="client.number" name="number" class="form-control" id="number" placeholder="number" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="neighborhood" class="form-title-label">Neighborhood</label>
+                    <input type="text" [(ngModel)]="client.neighborhood" name="neighborhood" class="form-control" id="neighborhood" placeholder="neighborhood name" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="complement" class="form-title-label">Complement (optional)</label>
+                    <input type="text" [(ngModel)]="client.complement" name="complement" class="form-control" id="complement" placeholder="complement" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                    <label class="form-check-label" for="invalidCheck2">
+                        Agree to terms and conditions
+                    </label>
+                </div>
+            </div> 
+
+            <div class="text-center"><button class="btn btn-primary" type="submit" (click)="register()">Register!</button></div>
+            
+        </form>
+    </div>
+</div>
