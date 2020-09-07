@@ -7,11 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+
+  user: any = { username: '', password: '' };
+
   constructor( ) {// redirect to home if already logged in
       // if (this.authenticationService.currentUserValue) { 
       //     this.router.navigate(['/']);
       // }
   }
+
+//   user: frezze
+// senha: fr3ZZ&l0g
 
   ngOnInit() {
       // this.loginForm = this.formBuilder.group({
@@ -26,7 +32,7 @@ export class LoginComponent implements OnInit {
   // convenience getter for easy access to form fields
   // get f() { return this.loginForm.controls; }
 
-  onSubmit() {
+  logIn() {
       // this.submitted = true;
 
       // // stop here if form is invalid
@@ -46,4 +52,6 @@ export class LoginComponent implements OnInit {
       //             this.loading = false;
       //         });
   }
+
+  
 }

@@ -1,15 +1,21 @@
 import { HttpClient } from '@angular/common/http';
-
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
+  headers = new Headers();
+  options: any;
   API_URL = 'https://gimme-pizza-api.herokuapp.com';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    // this.headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    // this.headers.append('Content-Type', 'application/json');
+    // this.headers.append('Access-Control-Allow-Origin', '*');
+  }
 
   listar() {
     return this.http.get<any[]>(`${this.API_URL}`)
@@ -37,10 +43,10 @@ export class ApiService {
   createClient(data) {
       console.log("Dados sendo enviados: ", data);
     // var data = { fullName: fullName, identityId: identityId, email: email, phone: phone, streetAddress: streetAddress, number: number, complement: complement, neighborhood: neighborhood, city: city, state: state, zipCode: zipCode };
-    // this.http.post<any[]>(`${this.API_URL}/clients`, data).subscribe((resultClient: any) => {
-    //   resultClient = resultClient.json();
-    //   console.log("Dados sendo enviados: ", data);
-    // });
+    this.http.post(`${this.API_URL}/clients`, data).subscribe((resultClient: any) => {
+      resultClient = resultClient.json();
+      // console.log("Dados sendo enviados: ", data);
+    });
   }
 
   createOrder(data) {

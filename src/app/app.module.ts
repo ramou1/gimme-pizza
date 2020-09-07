@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { CreateOrderComponent } from './create-order/create-order.component';
 import { FormsModule } from '@angular/forms';
 import { OrderDetailsComponent } from './order-details/order-details.component';
+import {Location} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     FormsModule,
     NgbModule
   ],
-  providers: [ApiService],
+  providers: [ApiService, Location],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,8 @@
 <div class="container">
     
     <div class="jumbotron col-lg-6 mx-auto dark shadow">
-        <a [routerLink]="['/']" class="back-button"> < BACK </a>
+        <!-- [routerLink]="['../']" -->
+        <a (click)="back()" class="back-button"> < BACK </a>
         <h1>Register</h1>
 
         <form>
@@ -20,12 +21,12 @@
             <div class="form-row">
                 <div class="col-md-8 mb-3">
                     <label for="email" class="form-title-label">Email address</label>
-                    <input type="email" [(ngModel)]="client.clientContacts.email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="enter email" required>
+                    <input type="email" [(ngModel)]="client.email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="enter email" required>
                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="phone" class="form-title-label">Phone</label>
-                    <input type="number" [(ngModel)]="client.clientContacts.phone" name="phone" class="form-control" id="phone" placeholder="w/o dots" required>
+                    <input type="number" [(ngModel)]="client.phone" name="phone" class="form-control" id="phone" placeholder="w/o dots" required>
                 </div>
             </div>
 
@@ -36,8 +37,8 @@
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="state" class="form-title-label">State</label>
-                    <select class="form-control" id="state">
-                        <option *ngFor="let state of states" name="state" value="{{state.abbreviation}}">{{state.name}}</option>
+                    <select class="form-control" name="state" id="state" [(ngModel)]="selectedState" (change)="setState(selectedState)">
+                        <option *ngFor="let state of states" [ngValue]="state">{{state.name}}</option>
                     </select>
                 </div>
                 <div class="col-md-3 mb-3">
