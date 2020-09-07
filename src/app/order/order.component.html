@@ -9,7 +9,7 @@
           </div>
         </li>
         <li class="list-group-item d-flex justify-content-between align-items-center"
-          *ngFor="let order of orders; let i = index;" [routerLink]="['/order-details', 'order']">
+          *ngFor="let order of orders; let i = index;" [routerLink]="['/order/order-details', { order: order } ]">
           <span *ngFor="let pizzas of order.pizzas; let i = index;">{{pizza.mainFlavor}} {{pizza.secondaryFlavor ? pizza.secondaryFlavor : ''}}</span> | {{order.pizzaOrder.client.fullName}}
           <span class="badge badge-primary badge-pill">{{order.status}}</span>
           <small>19:50</small>

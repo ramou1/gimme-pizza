@@ -7,6 +7,19 @@ body, .form-control, .btn {
 }
 
 /* styling forms */
+
+.back-button {
+    font-weight: 800;
+    color: #d32f2f;
+    font-size: 0.6rem;
+}
+
+.back-button:hover {
+    font-weight: 800;
+    color: #9a0007;
+    font-size: 0.6rem;
+}
+
 .form-title-label {
     font-weight: 700;
     margin-bottom: 0.2rem;

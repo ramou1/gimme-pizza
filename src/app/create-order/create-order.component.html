@@ -1,4 +1,5 @@
 <div class="container">
+
   <div class="jumbotron col-lg-5 mx-auto dark shadow">
     <h1>Gimme Pizza</h1>
     <p>Choose the options.</p>
@@ -11,15 +12,18 @@
           <label class="form-title-label">Size</label>
           <div class="form-group">
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" [(ngModel)]="pizzas.size" name="SizeOptions" id="sizeOption1" value="option1" checked>
+              <input class="form-check-input" type="radio" [(ngModel)]="pizzas.size" name="SizeOptions" id="sizeOption1"
+                value="option1" checked>
               <label class="form-check-label" for="sizeOption1">P</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" [(ngModel)]="pizzas.size" name="SizeOptions" id="sizeOption2" value="option2">
+              <input class="form-check-input" type="radio" [(ngModel)]="pizzas.size" name="SizeOptions" id="sizeOption2"
+                value="option2">
               <label class="form-check-label" for="sizeOption2">M</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" [(ngModel)]="pizzas.size" name="SizeOptions" id="sizeOption3" value="option3">
+              <input class="form-check-input" type="radio" [(ngModel)]="pizzas.size" name="SizeOptions" id="sizeOption3"
+                value="option3">
               <label class="form-check-label" for="sizeOption3">G</label>
             </div>
           </div>
@@ -27,16 +31,18 @@
           <label class="form-title-label">Pizza Dough</label>
           <div class="form-group">
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" [(ngModel)]="pizzas.crust" name="DoughOptions" id="doughOption1" value="thin" checked>
+              <input class="form-check-input" type="radio" [(ngModel)]="pizzas.crust" name="DoughOptions"
+                id="doughOption1" value="thin" checked>
               <label class="form-check-label" for="doughOption1">Thin-Crust</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" [(ngModel)]="pizzas.crust" name="DoughOptions" id="doughOption2" value="thick">
+              <input class="form-check-input" type="radio" [(ngModel)]="pizzas.crust" name="DoughOptions"
+                id="doughOption2" value="thick">
               <label class="form-check-label" for="doughOption2">Thick-Crust</label>
             </div>
           </div>
 
-          <label class="form-title-label">Kind of Pizza</label> 
+          <label class="form-title-label">Kind of Pizza</label>
           <div class="form-group">
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="pizzaOptions" id="pizzaOption1"
@@ -104,11 +110,13 @@
       <label class="form-title-label">Extra Sauce</label>
       <div class="form-group">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" [(ngModel)]="pizzas.extraSauce" type="radio" name="ExtraSauceOptions" id="yes" value="option1">
+          <input class="form-check-input" [(ngModel)]="pizzas.extraSauce" type="radio" name="ExtraSauceOptions" id="yes"
+            value="option1">
           <label class="form-check-label" for="yes">Yes</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" [(ngModel)]="pizzas.extraSauce" type="radio" name="ExtraSauceOptions" id="no" value="option2" checked>
+          <input class="form-check-input" [(ngModel)]="pizzas.extraSauce" type="radio" name="ExtraSauceOptions" id="no"
+            value="option2" checked>
           <label class="form-check-label" for="no">No</label>
         </div>
       </div>
