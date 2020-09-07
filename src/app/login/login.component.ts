@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-login',
@@ -8,31 +9,21 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
 
 
-  user: any = { username: '', password: '' };
+  user: any = { username: 'frezze', password: 'fr3ZZ&l0g' };
 
-  constructor( ) {// redirect to home if already logged in
+  constructor( public api: ApiService ) {// redirect to home if already logged in
       // if (this.authenticationService.currentUserValue) { 
       //     this.router.navigate(['/']);
       // }
   }
 
-//   user: frezze
-// senha: fr3ZZ&l0g
-
   ngOnInit() {
-      // this.loginForm = this.formBuilder.group({
-      //     username: ['', Validators.required],
-      //     password: ['', Validators.required]
-      // });
-
-      // // get return url from route parameters or default to '/'
-      // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
-  // convenience getter for easy access to form fields
-  // get f() { return this.loginForm.controls; }
-
   logIn() {
+
+
+      this.api.login(this.user.username, this.user.password);
       // this.submitted = true;
 
       // // stop here if form is invalid
@@ -53,5 +44,5 @@ export class LoginComponent implements OnInit {
       //         });
   }
 
-  
+
 }

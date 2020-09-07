@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -7,33 +7,39 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  headers = new Headers();
-  options: any;
+  // options: any;
   API_URL = 'https://gimme-pizza-api.herokuapp.com';
 
-  constructor(private http: HttpClient) { 
-    // this.headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    // this.headers.append('Content-Type', 'application/json');
-    // this.headers.append('Access-Control-Allow-Origin', '*');
+  headers: any = {
+    'Access-Control-Allow-Credentials': 'true',
+    'Access-Control-Allow-Origin': '*',
+    'Accept': 'application/json',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    'Access-Control-Allow-Methods': 'HEAD,GET,POST,PUT,DELETE,PATCH,OPTIONS',
   }
+  
+  options: any = {                                                                                                                                                                                 
+    headers: new HttpHeaders(this.headers), 
+  };
 
-  listar() {
-    return this.http.get<any[]>(`${this.API_URL}`)
-  }
+  constructor(private http: HttpClient) { }
 
-  listarPorId(id) {
-    return this.http.get(`${this.API_URL}/${id}`)
-  }
+  // listar() {
+  //   return this.http.get<any[]>(`${this.API_URL}`)
+  // }
+
+  // listarPorId(id) {
+  //   return this.http.get(`${this.API_URL}/${id}`)
+  // }
 
   login(username, password) {
-    var data = { username: username, password: password };
+    var data = { Username: username, Password: password };
 
     return new Promise((res, rej) => {
-      this.http.post(`${this.API_URL}/authentication`, data).subscribe((resultUser: any) => {
+      this.http.post(`${this.API_URL}/authentication`, data, this.options).subscribe((resultUser: any) => {
         resultUser = resultUser.json();
 
-        console.log("Dados sendo enviados: ", data);
-        console.log("Usuario: ", resultUser);
+        console.log("Resultado: ", resultUser);
 
       }, (error) => rej(error.json()));
     });
@@ -41,11 +47,10 @@ export class ApiService {
 
   // createClient(fullName, identityId, email, phone, streetAddress, number, complement, neighborhood, city, state, zipCode) {
   createClient(data) {
-      console.log("Dados sendo enviados: ", data);
-    // var data = { fullName: fullName, identityId: identityId, email: email, phone: phone, streetAddress: streetAddress, number: number, complement: complement, neighborhood: neighborhood, city: city, state: state, zipCode: zipCode };
+    console.log("Dados sendo enviados: ", data);
     this.http.post(`${this.API_URL}/clients`, data).subscribe((resultClient: any) => {
-      resultClient = resultClient.json();
-      // console.log("Dados sendo enviados: ", data);
+    resultClient = resultClient.json();
+    // console.log("Dados sendo enviados: ", data);
     });
   }
 
@@ -60,18 +65,5 @@ export class ApiService {
   getOrderSample() {
     return this.http.get<any[]>(`${this.API_URL}/samples/one`)
   }
-
-  // postJSON() {
-  //   var json = JSON.stringify({var1: 'teste', var2: 1000});
-  //   var params = 'json=' + json;
-  //   var cabe = new Headers();
-  //   cabe.append('Content-Type', 'application/x-www-form-urlencoded');
-  //   return this.http.post(`${this.API_URL}`, 
-  //   params, {
-  //            headers : cabe
-  //           })
-  //           .map(res=> res.json());
-  // }
-
 
 }
